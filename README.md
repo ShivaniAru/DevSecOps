@@ -1,2 +1,2 @@
-# DevSecOps
-Project for dev sec ops
+# FirmManagementSystem
+Firms management
