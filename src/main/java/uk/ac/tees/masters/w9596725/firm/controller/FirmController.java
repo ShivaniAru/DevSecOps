@@ -55,7 +55,7 @@ public class FirmController {
   @PostMapping("/firms/save")
   public String saveFirm(Firm firm, RedirectAttributes redirectAttributes) {
     try {
-     // firmController.save(firm);
+     firmController.save(firm);
 
       redirectAttributes.addFlashAttribute("message", "The Firm has been saved successfully!");
     } catch (Exception e) {
