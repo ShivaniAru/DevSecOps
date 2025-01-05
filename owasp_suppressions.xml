@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppression>
+    <cve>CVE-2021-12345</cve>
+    <notes>This vulnerability is not applicable in this case.</notes>
+</suppression>
