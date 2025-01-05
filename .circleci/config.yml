@@ -2,7 +2,7 @@
 # Stacks detected: deps:java:.
 version: 2.1
 orbs:
-  owasp: entur/owasp@0.0.x
+  owasp: entur/owasp@0.0.19
 jobs:
   test-java:
     docker:
