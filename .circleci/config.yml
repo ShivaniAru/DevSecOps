@@ -47,6 +47,3 @@ workflows:
           executor: java_11
           context: global
       
-    # - deploy:
-    #     requires:
-    #       - test-java
