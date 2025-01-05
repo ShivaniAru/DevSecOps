@@ -100,7 +100,7 @@
         <failBuildOnCVSS>7</failBuildOnCVSS>
         <nvdApiKey>f41a308e-7b4a-4896-a501-943e2e35912e </nvdApiKey>
         <suppressionFiles>  
-            <suppresionFile>${basedir}/owasp_suppressions.xml</suppresionFile>  
+            <suppresionFile>owasp_suppressions.xml</suppresionFile>  
         </suppressionFiles>        
     </configuration>
     <executions>
