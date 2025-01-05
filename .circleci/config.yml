@@ -1,12 +1,17 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:java:.
 version: 2.1
 orbs:
-  owasp: entur/owasp@0.0.19
+  owasp: entur/owasp@0.0.19  # Version of the OWASP Orb
+
+executors:
+  java_17:
+    docker:
+      - image: cimg/openjdk:17.0  # Docker image with Java 17
+    working_directory: ~/project  # Working directory
+
 jobs:
   test-java:
     docker:
-      - image: cimg/openjdk:17.0
+      - image: cimg/openjdk:17.0  # Docker image for Java 17
     steps:
       - checkout
       - run:
@@ -27,23 +32,23 @@ jobs:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           paths:
             - ~/.m2/repository
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
+
+  owasp-dependency-check:
+    executor: java_17  # Use the Java 17 executor defined above
     steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+      - checkout
+      - owasp/maven_owasp_dependency_check:
+          directory: .  # Make sure the directory is correct
+          context: global  # Assuming this context contains necessary variables
+
 workflows:
+  version: 2
   build-and-test:
     jobs:
       - test-java:
-          context: SONAR_TOKEN
+          context: SONAR_TOKEN  # Assuming this context contains the necessary SonarQube token
+
   owasp:
     jobs:
-      - owasp/maven_owasp_dependency_check:
-          executor: java_11
-          context: global
-      
+      - owasp-dependency-check:  # Fixed the job name to match the job definition
+          context: global  # Assuming 'global' contains the necessary env variables
