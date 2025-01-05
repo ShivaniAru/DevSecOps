@@ -37,7 +37,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - test-java
+      - test-java:
           context: SonarCloud
       
     # - deploy:
