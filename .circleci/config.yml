@@ -47,8 +47,5 @@ workflows:
     jobs:
       - test-java:
           context: SONAR_TOKEN  # Assuming this context contains the necessary SonarQube token
-
-  owasp:
-    jobs:
-      - owasp-dependency-check:  # Fixed the job name to match the job definition
-          context: global  # Assuming 'global' contains the necessary env variables
+      - owasp-dependency-check:
+          context: global
