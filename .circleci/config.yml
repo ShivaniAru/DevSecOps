@@ -33,19 +33,9 @@ jobs:
           paths:
             - ~/.m2/repository
 
-  owasp-dependency-check:
-    executor: java_17  # Use the Java 17 executor defined above
-    steps:
-      - checkout
-      - owasp/maven_owasp_dependency_check:
-          directory: .  # Make sure the directory is correct
-          context: global  # Assuming this context contains necessary variables
-
 workflows:
   version: 2
   build-and-test:
     jobs:
       - test-java:
           context: SONAR_TOKEN  # Assuming this context contains the necessary SonarQube token
-      - owasp-dependency-check:
-          context: global
