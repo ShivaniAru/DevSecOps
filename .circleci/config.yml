@@ -38,7 +38,7 @@ workflows:
   build-and-test:
     jobs:
       - test-java:
-          context: SonarCloud
+          context: SONAR_TOKEN
       
     # - deploy:
     #     requires:
