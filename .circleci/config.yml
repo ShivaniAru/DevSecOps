@@ -1,6 +1,8 @@
 # This config was automatically generated from your source code
 # Stacks detected: deps:java:.
 version: 2.1
+orbs:
+  owasp: entur/owasp@0.0.x
 jobs:
   test-java:
     docker:
@@ -39,6 +41,11 @@ workflows:
     jobs:
       - test-java:
           context: SONAR_TOKEN
+  owasp:
+    jobs:
+      - owasp/maven_owasp_dependency_check:
+          executor: java_11
+          context: global
       
     # - deploy:
     #     requires:
