@@ -41,9 +41,7 @@ workflows:
   build-and-test:
     jobs:
       - test-java:
-          context: SONAR_TOKEN
+          context: SONAR_TOKEN  # Assuming this context contains the necessary SonarQube token
       - owasp/maven_owasp_dependency_check:
-          executor: java_11
+          executor: java_17
           context: global
-
-      
