@@ -25,7 +25,7 @@ jobs:
           command: mvn verify -DskipTests
       - run:
           name: Analyze on SonarQube Cloud
-          command: mvn verify sonar:sonar -Dsonar.projectKey=ShivaniAru_DevSecOps
+          command: mvn verify -DskipTests sonar:sonar -Dsonar.projectKey=ShivaniAru_DevSecOps
       - store_test_results:
           path: target/surefire-reports
       - save_cache:
