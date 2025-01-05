@@ -16,6 +16,9 @@ jobs:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
       - run:
           command: mvn verify
+      - run:
+          name: Analyze on SonarQube Cloud
+          command: mvn verify sonar:sonar -Dsonar.projectKey=ShivaniAru_DevSecOps
       - store_test_results:
           path: target/surefire-reports
       - save_cache:
@@ -35,6 +38,8 @@ workflows:
   build-and-test:
     jobs:
       - test-java
+          context: SonarCloud
+      
     # - deploy:
     #     requires:
     #       - test-java
