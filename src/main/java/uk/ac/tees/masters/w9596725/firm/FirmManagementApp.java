@@ -10,4 +10,6 @@ public class FirmManagementApp {
 		SpringApplication.run(FirmManagementApp.class, args);
 	}
 
+	//added code - for commit
+
 }
