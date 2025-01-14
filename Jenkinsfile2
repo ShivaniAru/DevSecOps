@@ -1,6 +1,8 @@
 node {
   def app
   stage('SCM') {
+
+
     checkout scm
   }
   stage('Build Jar') {
