@@ -31,4 +31,5 @@ node {
 
   stage('Scan security vulnerabilities') {
   }
+
 }
